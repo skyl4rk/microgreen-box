@@ -1,7 +1,7 @@
 # Project Decisions Log
 
 **Project:** Microgreen Growing Device
-**Last Updated:** 2026-02-18 (Insect protection — fan dust filter + vent slot mesh screens — DECISION-026)
+**Last Updated:** 2026-02-18 (Published to GitHub — DECISION-027/028; consistency fixes; README/CONTRIBUTING/LICENSE)
 **Purpose:** This document is the single source of truth for the entire project. Any new Claude instance should read this file first and treat its contents as authoritative before taking any action.
 
 ---
@@ -33,9 +33,10 @@ Phase 01 DECISION-006 specified **compost/soil** as the growing medium for 73% h
 | Phase | Status | Last Updated | Notes |
 |-------|--------|--------------|-------|
 | 01 Research | **Complete** | 2026-02-17 | All 5 research docs written |
-| 02 Design | **Complete** | 2026-02-17 | All 8 design docs written; see decisions below |
+| 02 Design | **Complete** | 2026-02-18 | All 8 design docs written; consistency fixes applied (DECISION-027) |
 | 03 Build | **Complete** | 2026-02-18 | All deliverables done; see Phase 03 section for full list |
 | 04 Software | **Complete** | 2026-02-18 | Firmware + docs written; see Phase 04 section |
+| 05 Publication | **Complete** | 2026-02-18 | Published to GitHub — see DECISION-027/028 |
 
 ---
 
@@ -431,6 +432,27 @@ Note: Renders are matplotlib technical diagrams (OpenSCAD not available in build
 - **3D model changes:** `top_cap.scad` — fan mount pad added to union; fan hole (Ø37mm), fan recess (Ø42mm × 2mm), 4× M3 holes (32mm bolt circle), switch hole (Ø6.5mm) added to difference. `params.scad` — fan/switch parameters added.
 - **Status:** Active
 
+### [DECISION-028] Open-Source Publication — GitHub
+- **Date:** 2026-02-18
+- **Decision:** Project published as a public open-source repository at https://github.com/skyl4rk/microgreen-box
+- **Licence:** Dual-licence — CERN-OHL-S v2 for hardware (3D models, schematics); MIT for firmware; CC-BY-SA 4.0 for documentation.
+  - CERN-OHL-S v2 chosen for hardware because it is strongly reciprocal (modifications to hardware designs must be published under the same licence), which ensures improvements remain open. CERN-OHL-S is the standard for open hardware with a copyleft requirement, endorsed by OSHWA.
+  - MIT chosen for firmware because it is maximally permissive — contributors can integrate firmware techniques into other projects without licence friction.
+  - CC-BY-SA 4.0 chosen for documentation as it is the standard creative commons share-alike licence for technical writing.
+- **Files added:** `README.md` (complete rewrite), `CONTRIBUTING.md`, `hardware/LICENSE` (CERN-OHL-S v2), `software/LICENSE` (MIT), `.gitignore`
+- **Status:** Active
+
+### [DECISION-027] Documentation Consistency Fixes Applied Before Publication
+- **Date:** 2026-02-18
+- **Inconsistencies found and corrected:**
+  1. **Ring height:** `enclosure-design.md` showed 260mm per ring throughout — corrected to 190mm to match `params.scad` and DECISION-014. The section heading, dimension table, and door dimensions (150×260mm → 150×174mm) were all wrong.
+  2. **Interior clearance:** "100–130mm tray-to-LED clearance" was designed for 260mm rings — corrected to ~80–110mm for 190mm rings.
+  3. **Print strategy:** "Two halves (front + back)" in the ring print strategy contradicted DECISION-013 (4 corner quarters). Corrected to "4 L-shaped corner quarters (FL, FR, RL, RR)".
+  4. **Chamber internal dimensions:** enclosure-design.md listed approximate design-phase dimensions (reservoir 200×150×75mm, waste 100×150×75mm, electronics bay 90×150×75mm) that did not match params.scad (reservoir 204×142×84mm = 2.43L, waste 84×142×84mm = 1.0L, electronics bay 100×140×84mm). Corrected to match params.scad.
+  5. **Filament and print time totals:** enclosure-design.md showed 2,400g / 65h (from the design phase, before the 4-quarter split and misc parts were added). Corrected to 2,465g / 71.5h to match printing-instructions.md.
+- **Files changed:** `docs/02-design/enclosure-design.md`
+- **Status:** Active (these fixes are applied; no further action needed)
+
 ### [DECISION-026] Insect Protection — Fan Dust Filter + Vent Slot Mesh Screens
 - **Date:** 2026-02-18
 - **Decision:** Two permanent passive insect barriers are added to the enclosure:
@@ -517,6 +539,33 @@ Note: Renders are matplotlib technical diagrams (OpenSCAD not available in build
 | Sleep | ESP32 light sleep 60 s between loops; ~0.8 mA sleep vs ~80 mA active |
 | Button | GPIO0/BOOT — seed next available tray; GPIO wake from sleep |
 | Serial | 115200 baud; `T<epoch>` sets RTC; `S` dumps status |
+
+---
+
+## Phase 05: Publication — Complete
+
+### Repository
+- **URL:** https://github.com/skyl4rk/microgreen-box
+- **Visibility:** Public
+- **Initial commit:** 2026-02-18 (56 files, 10,646 insertions)
+
+### Licence files
+- ✅ `hardware/LICENSE` — CERN Open Hardware Licence Version 2 — Strongly Reciprocal (CERN-OHL-S v2)
+- ✅ `software/LICENSE` — MIT License
+- Documentation covered by CC-BY-SA 4.0 (stated in README)
+
+### New files added for publication
+- ✅ `README.md` — complete rewrite; project description, renders, BOM summary, getting-started guide, spec table, firmware quick reference, nutrition context, licence summary
+- ✅ `CONTRIBUTING.md` — contribution guidelines: build reports, bug reports, hardware design, firmware, PR process, consistency rules, prioritised contribution areas
+- ✅ `.gitignore` — Python cache, OS files, editor temp files, Arduino build artifacts
+
+### Consistency issues fixed before publication (DECISION-027)
+All fixes applied to `docs/02-design/enclosure-design.md`:
+1. Ring height: 260mm → 190mm (heading, dimension table, door dimensions)
+2. Interior LED clearance: 100–130mm → ~80–110mm
+3. Print strategy: "two halves" → "4 L-shaped corner quarters (FL, FR, RL, RR)"
+4. Chamber internal dimensions: corrected to match params.scad ground truth
+5. Filament/print time totals: 2,400g/65h → 2,465g/71.5h
 
 ---
 
