@@ -65,49 +65,38 @@ module tube_clip() {
 // Post-process: test with water pressure before installation.
 // ============================================================
 module manifold_3way() {
-    body_len  = mani_barb_l * 2 + mani_body_d;
+    olap      = 2.0;        // overlap of barbs into body to ensure solid union
     inlet_len = mani_barb_l + 6;
 
     // Centre body
     cylinder(d=mani_body_d, h=mani_body_d);
 
-    // Inlet barb (pointing up = +Z direction in print orientation)
-    translate([0, 0, mani_body_d]) {
-        // Barb shaft
-        cylinder(d=mani_in_d, h=inlet_len);
-        // Retention ridge
-        translate([0, 0, inlet_len - 6])
+    // Inlet barb — starts olap mm INSIDE the body top so union is solid
+    translate([0, 0, mani_body_d - olap]) {
+        cylinder(d=mani_in_d, h=inlet_len + olap);
+        // Retention ridge (positioned relative to external start)
+        translate([0, 0, olap + inlet_len - 6])
             cylinder(d1=mani_in_d, d2=mani_in_d + 2*mani_barb_step, h=3);
-        translate([0, 0, inlet_len - 3])
+        translate([0, 0, olap + inlet_len - 3])
             cylinder(d1=mani_in_d + 2*mani_barb_step, d2=mani_in_d, h=3);
     }
 
-    // 3 outlet barbs (radiating at 120° in XY plane)
+    // 3 outlet barbs — start olap mm INSIDE the body surface so union is solid
     for (a = [0, 120, 240]) {
         rotate([0, 0, a])
-            translate([mani_body_d/2, 0, mani_body_d/2])
+            translate([mani_body_d/2 - olap, 0, mani_body_d/2])
                 rotate([0, 90, 0]) {
-                    // Barb shaft
-                    cylinder(d=mani_out_d, h=mani_barb_l);
-                    // Retention ridge
-                    translate([0, 0, mani_barb_l - 5])
+                    cylinder(d=mani_out_d, h=mani_barb_l + olap);
+                    // Retention ridge (positioned relative to external start)
+                    translate([0, 0, olap + mani_barb_l - 5])
                         cylinder(d1=mani_out_d,
                                  d2=mani_out_d + 2*mani_barb_step, h=2.5);
-                    translate([0, 0, mani_barb_l - 2.5])
+                    translate([0, 0, olap + mani_barb_l - 2.5])
                         cylinder(d1=mani_out_d + 2*mani_barb_step,
                                  d2=mani_out_d, h=2.5);
                 }
     }
 
-    // Bore: inlet channel to body
-    translate([0, 0, -eps])
-        cylinder(d=mani_in_d - 2, h=mani_body_d + inlet_len + 2*eps);
-
-    // Bore: 3 outlet channels
-    difference() {
-        // (placeholder — use difference at call site if needed)
-        translate([0, 0, 0]) cylinder(d=0.01, h=0.01); // noop
-    }
 }
 
 // Manifold with bores (final part)
@@ -115,16 +104,26 @@ module manifold_3way_final() {
     difference() {
         manifold_3way();
 
-        // Inlet bore (through inlet barb and body)
-        translate([0, 0, -eps])
-            cylinder(d=mani_in_d - 2.5, h=mani_body_d * 2);
+        // All internal channel voids joined before subtraction to avoid
+        // CGAL non-manifold errors from overlapping cylinder booleans.
+        union() {
+            // Junction sphere at body centre — cleanly connects all four channels
+            translate([0, 0, mani_body_d/2])
+                sphere(r=mani_in_d/2);
 
-        // Outlet bores
-        for (a = [0, 120, 240])
-            rotate([0, 0, a])
-                translate([mani_body_d/2 - eps, 0, mani_body_d/2])
-                    rotate([0, 90, 0])
-                        cylinder(d=mani_out_d - 2.5, h=mani_barb_l + 2*eps);
+            // Inlet bore (through inlet barb and full body height)
+            translate([0, 0, -eps])
+                cylinder(d=mani_in_d - 2.5,
+                         h=mani_body_d + 6 + mani_barb_l + 2*eps);
+
+            // Outlet bores — from centre sphere through each barb
+            for (a = [0, 120, 240])
+                rotate([0, 0, a])
+                    translate([0, 0, mani_body_d/2])
+                        rotate([0, 90, 0])
+                            cylinder(d=mani_out_d - 2.5,
+                                     h=mani_body_d/2 + mani_barb_l + 2 + 2*eps);
+        }
     }
 }
 
