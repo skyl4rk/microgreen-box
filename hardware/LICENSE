@@ -1,0 +1,25 @@
+CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S v2)
+
+Copyright Paul, 2026.
+
+This hardware design and associated documentation files (the "Design") — 
+including all 3D models, schematics, PCB layouts, and mechanical drawings 
+in the hardware/ directory of this repository — are licenced under the 
+CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S v2).
+
+You may redistribute and modify this Design and make products using it 
+under the terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt).
+
+This Design is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, 
+INCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A 
+PARTICULAR PURPOSE. Please see the CERN-OHL-S v2 for applicable conditions.
+
+Source location: https://github.com/skyl4rk/microgreen-box
+
+As per CERN-OHL-S v2 section 4, should you produce hardware based on this
+Design, you must maintain the Source Location notice and ensure recipients 
+can access the complete Covered Source. Modified designs must be released 
+under CERN-OHL-S v2 or a compatible licence.
+
+Full licence text: https://ohwr.org/cern_ohl_s_v2.txt
+OSHWA certification information: https://certification.oshwa.org/

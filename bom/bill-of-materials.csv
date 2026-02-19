@@ -1,0 +1,85 @@
+ID,Category,Component,Specification,Qty,Unit,Supplier,Part Number / ASIN / Item,Vendor URL,Unit Cost USD (est),Total Cost USD (est),Notes
+E01,Electronics - Control,Microcontroller,ESP32-WROOM-32 38-pin dev board CP2102 USB-UART,1,ea,AliExpress,Item 32864722159,https://www.aliexpress.com/item/32864722159.html,1.83,1.83,GPIO map: 13/25/26/27=relay; 21/22=I2C; 32/34/35=ADC moisture; 33=float; 16-19/5/17=outputs
+E01-ALT,Electronics - Control,Microcontroller (Amazon alt),ESP32-WROOM-32 38-pin AITRIP 5-pack,5,ea,Amazon,B09DPH1KXF,https://www.amazon.com/dp/B09DPH1KXF,2.60,13.00,~$2.60/board in 5-pack; CP2102 USB-UART; buy 5 to have spares
+E02,Electronics - Control,RTC module,DS3231 + AT24C32 I2C module with coin cell holder,1,ea,AliExpress,Item 4000173986273,https://www.aliexpress.com/item/4000173986273.html,2.13,2.13,I2C address 0x68; CR2032 coin cell included; shares I2C bus with OLED
+E03,Electronics - Control,OLED display (optional),0.96-inch 128×64 I2C SSD1306 white,1,ea,AliExpress,Item 32643950109,https://www.aliexpress.com/item/32643950109.html,1.60,1.60,I2C address 0x3C; shares bus with DS3231; GPIO21 SDA / GPIO22 SCL
+E04,Electronics - Power,Buck converter,MP1584EN 12V→5V 3A step-down module — set to 5.00V,1,ea,AliExpress,Item 32828603866,https://www.aliexpress.com/item/32828603866.html,0.65,0.65,ONLY conversion stage 1 of 2; pre-adjust to 5.00V before connecting ESP32
+E05,Electronics - Power,Fuse holder + fuse,Inline blade fuse holder + 5A automotive blade fuse,1,ea,Any hardware,—,—,1.50,1.50,Protects 12V bus; 5A at 12V = 60W capacity vs 15W peak load
+E06,Electronics - Power,Reverse polarity protection,AO3401 P-channel MOSFET SOT-23,1,ea,AliExpress,AO3401,—,0.50,0.50,Source to 12V_in; Drain to fuse; Gate to GND via 10kΩ pull-down
+E07,Electronics - Power,Power input jack,5.5/2.1mm DC barrel jack panel-mount positive-centre,1,ea,AliExpress,—,—,0.75,0.75,Left outer wall of base unit; positive tip = +12V
+E08,Electronics - Lighting,LED grow strips (primary),12V full-spectrum plant grow strip 5050 red+blue+white,1,ea,AliExpress,Item 32816538353,https://www.aliexpress.com/item/32816538353.html,11.41,11.41,Cut to 3×25cm; fold U-shape per tray; add 10Ω 5W series resistor if >4W; one roll covers all 3 trays
+E08-ALT,Electronics - Lighting,LED strips (white alt),Tesfish 12V 2835 6000K 240LED/m 5m roll,1,ea,Amazon,B08T89VRPP,https://www.amazon.com/dp/B08T89VRPP,10.00,10.00,Alt: cut 3×25cm lengths; 6000K full-spectrum white; 5m roll covers all 3 trays with strip to spare
+E08-SLED,Electronics - Lighting,LED panel sled (printed),led_panel.stl — 100×100mm PETG sled for strip mounting,3,ea,Self-print,—,—,—,—,Back with aluminium tape for heat sink; conformal-coat strip for humidity protection
+E09,Electronics - Actuators,Relay module,4-ch 5V optocoupler hi/lo trigger selectable; JD-VCC isolated,1,ea,AliExpress,Item 32897567002,https://www.aliexpress.com/item/32897567002.html,3.10,3.10,Set to LOW-level trigger; remove VCC-JD-VCC jumper; power JD-VCC from 5V bus separately
+E09-ALT,Electronics - Actuators,Relay module (Amazon alt),DIYables 4-ch 5V ESP32-compatible hi/lo trigger,1,ea,Amazon,B0BXKKYH5C,https://www.amazon.com/dp/B0BXKKYH5C,10.00,10.00,Explicitly ESP32 3.3V compatible; documented setup guide available
+E10,Electronics - Actuators,Peristaltic pump (primary),INTLLAB 12V DC peristaltic pump 5-100 mL/min 4-pack,4,ea,Amazon,B088TBKNSY,https://www.amazon.com/dp/B088TBKNSY,6.45,25.80,Use 1; keep 3 spare; 3mm ID × 5mm OD silicone tubing; measures actual flow rate to set run time
+E10-ALT,Electronics - Actuators,Peristaltic pump (adjustable alt),Gikfun EK1971 12V 8-70 mL/min adjustable + 3m tube,1,ea,Amazon,B0B4FMSJPV / EK1971,https://www.amazon.com/dp/B0B4FMSJPV,18.00,18.00,Adjustable knob for flow rate; includes 3m silicone tube; single pump
+E10-ALT2,Electronics - Actuators,Peristaltic pump (AliExpress alt),R385 motor 12V peristaltic head,1,ea,AliExpress,Item 32770860268,https://www.aliexpress.com/i/32770860268.html,5.00,5.00,Budget option; 19-100 mL/min; 3mm ID × 5mm OD tubing; order extra tube
+E11,Electronics - Sensors,Reservoir float switch,ZP2508 mini PP vertical float switch NC (normally closed),1,ea,AliExpress,Item 4000246458661,https://www.aliexpress.com/item/4000246458661.html,0.62,0.62,Replaces XKC-Y25-V; NC contact; LOW=low water; install inside reservoir through lid gland; GPIO33 with 10kΩ pull-up
+E11-GLAND,Electronics - Sensors,Cable gland for float switch,M5 rubber cable gland Ø3-5mm cable,1,ea,AliExpress,—,—,0.30,0.30,Waterproof float switch wire entry through reservoir lid
+E12,Electronics - Sensors,Temperature sensor (optional),DS18B20 waterproof probe 1-Wire 3-5V,1,ea,AliExpress,DS18B20,—,2.00,2.00,Optional; 1-Wire bus; growing chamber temp monitoring; connect to any free GPIO
+E13,Electronics - Sensors,Coir moisture sensor — Tray A,Capacitive Soil Moisture Sensor V1.2 analog 3.3V,1,ea,AliExpress,Item 32853373769,https://www.aliexpress.com/item/32853373769.html,1.22,1.22,GPIO34 (ADC1_CH6 input-only); VCC=3.3V; calibrate dry-air vs submerged readings
+E14,Electronics - Sensors,Coir moisture sensor — Tray B,Capacitive Soil Moisture Sensor V1.2 analog 3.3V,1,ea,AliExpress,Item 32853373769,https://www.aliexpress.com/item/32853373769.html,1.22,1.22,GPIO35 (ADC1_CH7 input-only); same calibration procedure as E13
+E15,Electronics - Sensors,Coir moisture sensor — Tray C,Capacitive Soil Moisture Sensor V1.2 analog 3.3V,1,ea,AliExpress,Item 32853373769,https://www.aliexpress.com/item/32853373769.html,1.22,1.22,GPIO32 (ADC1_CH4); conformal-coat body not tip; insert vertically ~4cm into coir
+E15-ALT,Electronics - Sensors,Moisture sensors (Amazon alt 2-pack),Gikfun EK1940 capacitive corrosion-resistant 2-pack,2,ea,Amazon,B07H3P1NRM / EK1940,https://www.amazon.com/dp/B07H3P1NRM,4.50,9.00,Buy 2 (= 4 sensors) covers all 3 trays with 1 spare; ~$4.50/2pk
+E16,Electronics - Indicators,Status LED — green 3mm,3mm green LED 2.1V Vf,1,ea,Electronics shop,—,—,0.10,0.10,GPIO18 via 330Ω; power-on indicator; ~4mA
+E17,Electronics - Indicators,Status LED — yellow 3mm,3mm yellow LED 2.0V Vf,1,ea,Electronics shop,—,—,0.10,0.10,GPIO19 via 330Ω; reservoir low water alert; ~4mA
+E18,Electronics - Indicators,Status LED — red 3mm (×2),3mm red LED 1.8V Vf,2,ea,Electronics shop,—,—,0.10,0.20,GPIO5 (Tray A harvest) and GPIO17 (Tray B+C harvest) each via 330Ω
+E19,Electronics - Indicators,Current-limiting resistors 330Ω,330Ω 1/4W ±5% through-hole,10,ea,Any,—,—,0.01,0.10,For all 4 status LEDs
+E20,Electronics - Indicators,Buzzer (optional),5V active buzzer 85dB 12mm,1,ea,AliExpress,—,—,0.50,0.50,GPIO16 via 100Ω resistor; low-water audible alert
+E21,Electronics - Indicators,Resistor 100Ω,100Ω 1/4W for buzzer,1,ea,Any,—,—,0.01,0.01,In series with GPIO16 and buzzer
+E22,Electronics - Wiring,Hookup wire — heavy 20 AWG,20 AWG silicone-insulated red and black 3m each,6,m,AliExpress,Item 32980669701,https://www.aliexpress.com/item/32980669701.html,0.38,2.28,12V power runs: LED strips / pump / relay COM / bus; select 20AWG variant
+E23,Electronics - Wiring,Hookup wire — light 24 AWG,24 AWG silicone multi-colour,6,m,AliExpress,Item 32980669701,https://www.aliexpress.com/item/32980669701.html,0.38,2.28,Signal wires: GPIO→relay IN / sensors / I2C / LEDs; select 24AWG variant
+E24,Electronics - Wiring,JST-XH connector kit,230pcs JST XH 2.54mm 2/3/4/5-pin male+female+crimp,1,ea,AliExpress,Item 4000410350035,https://www.aliexpress.com/item/4000410350035.html,3.18,3.18,Full wiring harness; all inter-module connectors; includes terminals
+E25,Electronics - Wiring,Prototype stripboard,5×7cm double-sided stripboard,1,ea,AliExpress,—,—,0.75,0.75,Power management board: MP1584 + AO3401 + fuse holder
+E26,Electronics - Wiring,Pin headers male 2.54mm,40-pin 2.54mm male header strips,2,ea,AliExpress,—,—,0.30,0.60,ESP32 dev board to stripboard; other module mounts
+E27,Electronics - Wiring,Heat shrink tubing,Assorted 2/4/6mm 1m each,3,m,AliExpress,—,—,1.50,1.50,Insulating solder joints and bare wire ends
+E28,Electronics - Wiring,Pull-up resistors 10kΩ,10kΩ 1/4W through-hole (for float switch and AO3401 gate),2,ea,Any,—,—,0.01,0.02,1 for float switch pull-up (GPIO33 to 3.3V); 1 for AO3401 gate pull-down to GND
+E29,Electronics - Wiring,Series resistors 10Ω 5W,10Ω 5W wirewound resistor (LED strip current limit),3,ea,Any,—,—,0.30,0.90,One per LED strip if using 60cm of 5050 strip (limits to ~3W); omit if using 25cm cuts
+H01,Hardware - Fasteners,M3×20mm bolts,Stainless steel pan-head Phillips,60,ea,Any hardware,—,—,0.05,3.00,Base halves + ring stacks + ring quarter seams
+H02,Hardware - Fasteners,M3 hex nuts,Stainless steel,60,ea,Any hardware,—,—,0.03,1.80,Captured nut pockets throughout
+H03,Hardware - Fasteners,M3×10mm bolts,Stainless steel pan-head,20,ea,Any hardware,—,—,0.04,0.80,Door hinges + LED brackets + misc
+H04,Hardware - Fasteners,M5 heat-set inserts,OD 7mm depth 8mm brass,4,ea,AliExpress / Amazon,—,—,0.30,1.20,Vehicle mounting corners in base underside
+H05,Hardware - Fasteners,Hinge pins,3mm steel rod cut to length or M3×30mm bolts,3,ea,Any hardware,—,—,0.20,0.60,Front door hinges (1 pin per door × 3 doors)
+H06,Hardware - Sealing,RTV silicone sealant,Neutral-cure clear food-safe 80mL tube,1,ea,Hardware store,—,—,6.00,6.00,Base split joint + ring quarter seams + reservoir lid gland
+H07,Hardware - Sealing,Foam weather-strip,3mm closed-cell self-adhesive 5m roll,1,ea,Hardware / Amazon,—,—,4.00,4.00,Ring flange light-seal + door perimeter seal
+H08,Hardware - Sealing,O-ring,Ø40mm ID × 2mm cross-section,1,ea,Hardware / Amazon,—,—,0.50,0.50,Reservoir fill port lid seal
+H09,Hardware - Sealing,Neodymium magnets,Ø8mm × 3.5mm disc,6,ea,AliExpress / Amazon,—,—,0.40,2.40,2 per door (ring pocket + door pocket) × 3 doors
+H10,Hardware - Sealing,CA glue (super glue),5g tube,1,ea,Any,—,—,1.00,1.00,Securing magnets after polarity verification
+P01,Printed - Base,Base front half,base_front.stl PETG 40% infill,1,ea,Self-print,—,—,—,—,280g / 8h
+P02,Printed - Base,Base rear half,base_rear.stl PETG 40% infill,1,ea,Self-print,—,—,—,—,250g / 7h; reservoir + electronics bay
+P03,Printed - Base,Reservoir lid,reservoir_lid.stl PETG 40% infill + 5mm hole for float switch gland,1,ea,Self-print,—,—,—,—,30g / 1h; add M5 gland port for ZP2508 float switch wires
+P04,Printed - Base,Waste chamber lid,waste_lid.stl PETG 40% infill,1,ea,Self-print,—,—,—,—,20g / 0.75h; snap-fit
+P05,Printed - Base,Electronics bay cover,electronics_cover.stl PETG 30% infill,1,ea,Self-print,—,—,—,—,25g / 0.75h; cable pass-through slot
+P06,Printed - Base,Pump mount bracket,pump_mount.stl PETG 40% infill,1,ea,Self-print,—,—,—,—,15g / 0.5h
+P07,Printed - Ring,Ring FL quarter (×3 sets),ring_FL.stl PETG 30% infill,3,ea,Self-print,—,—,—,—,120g each / 3.5h
+P08,Printed - Ring,Ring FR quarter (×3 sets),ring_FR.stl PETG 30% infill,3,ea,Self-print,—,—,—,—,110g each / 3h
+P09,Printed - Ring,Ring RL quarter (×3 sets),ring_RL.stl PETG 30% infill,3,ea,Self-print,—,—,—,—,80g each / 2h
+P10,Printed - Ring,Ring RR quarter (×3 sets),ring_RR.stl PETG 30% infill,3,ea,Self-print,—,—,—,—,80g each / 2h
+P11,Printed - Trays,Growing tray,growing_tray.stl PETG 30% infill,3,ea,Self-print,—,—,—,—,60g each / 2h; 4×Ø8mm drain holes
+P12,Printed - Trays,Sub-tray,sub_tray.stl PETG 40% infill,3,ea,Self-print,—,—,—,—,50g each / 1.5h; WATERPROOF COAT REQUIRED
+P13,Printed - Lighting,LED bracket,led_bracket.stl PETG 30% infill,3,ea,Self-print,—,—,—,—,20g each / 0.5h; ±15mm height adjustment
+P14,Printed - Doors,Front door,tray_door.stl PETG 20% infill,3,ea,Self-print,—,—,—,—,30g each / 1h
+P15,Printed - Cap,Top cap body,top_cap.stl PETG 25% infill,1,ea,Self-print,—,—,—,—,80g / 2.5h
+P16,Printed - Cap,Seed box lid,seed_box_lid.stl PETG 25% infill,1,ea,Self-print,—,—,—,—,15g / 0.5h
+P17,Printed - Misc,Tube saddle clips,tube_clip.stl PETG 50% infill,12,ea,Self-print,—,—,—,—,5g each / 0.25h
+P18,Printed - Misc,3-way water manifold,manifold_3way.stl PETG 60% infill,1,ea,Self-print,—,—,—,—,10g / 0.5h
+P19,Printed - Misc,Drip emitter cap,drip_emitter.stl PETG 60% infill,3,ea,Self-print,—,—,—,—,3g each / 0.25h; 2mm orifice
+P20,Printed - Misc,Status LED panel,led_panel.stl PETG 25% infill,1,ea,Self-print,—,—,—,—,10g / 0.3h; 4× 3mm LED mount in top cap
+F01,Filament,PETG filament 1.75mm,Food-safe grade preferred; any colour,2.5,kg,Filament supplier,—,—,22.00,55.00,~2465g total; buy 3kg spool
+W01,Waterproofing,XTC-3D epoxy coating,Smooth-On XTC-3D 2-part epoxy,1,ea,Smooth-On / Amazon,—,—,18.00,18.00,Reservoir / waste chamber / sub-tray interiors; critical
+W02,Waterproofing,Rustoleum Crystal Clear (alternative),Spray lacquer 3-4 coats,1,ea,Hardware store,—,—,10.00,10.00,Alternative to W01
+C01,Consumable - Seeds,Broccoli microgreen seed,Untreated non-GMO De Cicco / Calabrese / Waltham 29,500,g,True Leaf Market / Johnny's Seeds,—,—,15.00,15.00,~500g lasts ~5 months
+C02,Consumable - Medium,Compressed coir pucks,50g compressed 100% coir,24,ea,Amazon / Garden centre,—,—,0.75,18.00,~6/month; 24 = 4-month supply
+C03,Consumable - Supplement,CalMag liquid (optional),General Hydroponics CALiMAGic 240mL,1,ea,Hydroponic store / Amazon,—,—,12.00,12.00,Optional; 0.5mL/L from day 3; 240mL lasts ~8 months
+C04,Consumable - Storage,Small zip-lock bags,10×8cm food-grade resealable 100-pack,100,ea,Amazon / Dollar store,—,—,4.00,4.00,~15/month for frozen 30g portions
+S01,Solar - Optional,Solar panel,40W monocrystalline 12V,1,ea,Amazon / eBay,—,—,38.00,38.00,Off-grid; 40W × 4PSH × 0.85 = 136 Wh/day vs ~159 Wh/day avg — consider 50W for margin
+S02,Solar - Optional,MPPT charge controller,10A 12V/24V auto,1,ea,AliExpress / Amazon,—,—,20.00,20.00,Off-grid only
+S03,Solar - Optional,LiFePO4 battery,12V 20Ah with built-in BMS,1,ea,Amazon,—,—,58.00,58.00,~34h autonomy on battery alone
+S04,Solar - Optional,Solar cable + MC4 connectors,10AWG 3m pair,1,ea,Amazon,—,—,8.00,8.00,Off-grid only
+S05,Solar - Optional,Battery cable + Anderson PP45,10AWG 1m pair,1,ea,Amazon,—,—,6.00,6.00,Off-grid only
+E30,Electronics - Ventilation,40mm 12V brushless fan,"40×40×10mm 12V DC 2-pin brushless PC fan ≤25 dBA",1,ea,AliExpress / Amazon,—,—,3.00,3.00,Top cap exhaust fan; label/inlet side faces INTO cap; DECISION-024
+E31,Electronics - Ventilation,SPST mini toggle switch,"Panel-mount toggle 6mm body 12V DC rated ON-OFF",1,ea,AliExpress / Electronics shop,—,—,1.00,1.00,6.5mm panel-cut hole in top cap front face (right side); wired 12V → switch → fan; no relay or firmware
+E32,Electronics - Ventilation,40mm fan guard/grill,"Plastic or wire snap-fit fan guard for 40mm fans",1,ea,AliExpress,—,—,0.50,0.50,Snap onto fan exterior face to prevent blade contact
+E33,Enclosure - Insect Protection,40mm PC fan dust filter,"Foam or fine-mesh snap-fit dust filter for 40mm fan frames ≤0.5mm pore size",1,ea,AliExpress / Amazon,—,—,1.50,1.50,Slides under fan guard on fan exterior (exhaust) face; blocks fungus gnats and other insects from entering column through fan hole when fan is off; DECISION-024
+E34,Enclosure - Insect Protection,Fiberglass insect screen mesh,"Fine fiberglass window screen ~1.2mm pore — 100×50mm piece (cut 6× 27×10mm patches)",1,ea,Hardware store / Amazon,—,—,1.00,1.00,Adhere one patch over interior of each ring vent slot opening with RTV silicone (6 patches total: 2 slots × 3 rings); permanent insect barrier; slide cover still functions over mesh for light sealing
