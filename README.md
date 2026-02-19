@@ -70,14 +70,21 @@ Full BOM with exact part links and vendor SKUs: [bom/bill-of-materials.csv](bom/
 ### 3D-printed parts (~$50–62 filament)
 
 ~2.5 kg PETG filament, ~71.5 print-hours. All parts fit on a 200×200mm print bed.
-See [docs/03-build/printing-instructions.md](docs/03-build/printing-instructions.md) for settings and part list.
 
-OpenSCAD source: [hardware/3d-models/source/](hardware/3d-models/source/)
+**Pre-built STL files are included** in [`hardware/3d-models/stl/`](hardware/3d-models/stl/) — 20 files ready to print or upload to a print service. You do not need to install OpenSCAD to get the parts made.
 
+**Option A — Order from a 3D print service (no printer required):**
+1. Download the STL files from [`hardware/3d-models/stl/`](hardware/3d-models/stl/)
+2. Upload to a service such as [Craftcloud](https://craftcloud3d.com), [JLCPCB](https://3d.jlcpcb.com), [Treatstock](https://www.treatstock.com), or a local print shop / library makerspace
+3. Select **PETG** material — do not substitute PLA (it warps in hot vehicles)
+4. Use the quantities listed in [`docs/03-build/printing-instructions.md`](docs/03-build/printing-instructions.md)
+
+**Option B — Print yourself:**
+See [docs/03-build/printing-instructions.md](docs/03-build/printing-instructions.md) for slicer settings. To regenerate STLs from source (only needed if you modify the design):
 ```bash
 sudo apt install openscad
 cd hardware/3d-models
-make all          # generates all STL files in hardware/3d-models/stl/
+make all          # regenerates all STL files in hardware/3d-models/stl/
 ```
 
 ### Hardware and consumables (~$30)
@@ -105,12 +112,13 @@ In order:
 5. [docs/04-software/installation-guide.md](docs/04-software/installation-guide.md) — firmware setup
 6. [docs/04-software/user-manual.md](docs/04-software/user-manual.md) — daily operation
 
-### 2. Print the parts
+### 2. Get the parts printed
 
-All OpenSCAD source files are in [hardware/3d-models/source/](hardware/3d-models/source/).
-Master parameters (dimensions, tolerances) are in `params.scad` — change a dimension there and every dependent model updates.
+**Ready-to-use STL files are in [`hardware/3d-models/stl/`](hardware/3d-models/stl/).** Upload these directly to a print service or open them in your slicer — no software installation needed.
 
-Print in **PETG only** — PLA warps in hot vehicles (glass transition ~60°C). Use 40% infill for structural parts, 4 perimeters, 6 top/bottom layers. Post-process reservoir and sub-tray interiors with XTC-3D epoxy for water-tightness.
+**No printer?** Upload the STL files to an online 3D print service (Craftcloud, JLCPCB 3D, Treatstock, or a local print shop). Select **PETG** — do not substitute PLA. See [printing-instructions.md](docs/03-build/printing-instructions.md) for the quantity of each file to order and per-part infill settings to specify.
+
+**Have a printer?** Open the STL files in PrusaSlicer, Bambu Studio, or Cura. Use 40% infill for structural parts, 4 perimeters, 6 top/bottom layers, PETG profile. Post-process reservoir and sub-tray interiors with XTC-3D epoxy for water-tightness. Full settings in [printing-instructions.md](docs/03-build/printing-instructions.md).
 
 ### 3. Wire the electronics
 

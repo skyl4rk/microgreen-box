@@ -8,9 +8,33 @@
 
 ## Overview
 
-All structural parts are printed in **PETG** on a standard FDM printer with a minimum 200×200mm build plate. The enclosure is modular: parts larger than the build plate are split into halves that join with M3 bolts and PETG solvent weld. Total estimated filament: ~2.4 kg. Total estimated print time: ~65 hours (spread across multiple prints).
+All structural parts are printed in **PETG**. Pre-built STL files for all 20 parts are included in the repository at `hardware/3d-models/stl/` — ready to print or upload to a print service.
 
 **CRITICAL: Use PETG for all parts.** PLA will warp in hot vehicles (Tg ~60°C) and degrade in moisture. PETG is mandatory for all structural, water-contact, and tray parts.
+
+---
+
+## Option A — Order from a 3D print service (no printer required)
+
+If you do not have a 3D printer, any online or local print service can produce the parts:
+
+1. **Download the STL files** from `hardware/3d-models/stl/` (20 files)
+2. **Upload to a service** — for example:
+   - [Craftcloud](https://craftcloud3d.com) — compares prices across many services
+   - [JLCPCB 3D Printing](https://3d.jlcpcb.com) — low cost, ships internationally
+   - [Treatstock](https://www.treatstock.com) — find local print shops
+   - Local library or makerspace with a 3D printer
+3. **Select PETG** as the material — do not accept substitution with PLA
+4. **Specify quantities and infill** using the parts table below
+5. **Specify 4 perimeters / wall loops** and **6 top/bottom layers** for water-tight parts (reservoir, sub-trays)
+
+**Estimated cost from a print service:** ~$80–150 depending on service, shipping, and region (filament-only cost is ~$55; services add labour and overhead).
+
+---
+
+## Option B — Print yourself
+
+Minimum build plate: 200×200mm. Heated bed required.
 
 ---
 
@@ -67,12 +91,12 @@ Each ring is split into 4 quarters for print bed compatibility. Print 3 complete
 
 | Part | File | Qty per level | Infill | Filament per set | Est. Time per set | Notes |
 |------|------|--------------|--------|-----------------|------------------|-------|
-| Ring front panel | `ring_front.stl` | 1 | 30% | 120g | 3.5h | Front face with door hinge points and LED wire pass-through |
-| Ring rear panel | `ring_rear.stl` | 1 | 30% | 110g | 3h | Rear wall with drip tube entry port |
-| Ring left side | `ring_left.stl` | 1 | 30% | 80g | 2h | Left wall with sub-tray ledge |
-| Ring right side | `ring_right.stl` | 1 | 30% | 80g | 2h | Right wall with sub-tray ledge |
-| **Ring subtotal (×1)** | | | | **390g** | **10.5h** | |
-| **Ring subtotal (×3)** | | | | **1,170g** | **31.5h** | |
+| Ring front-left quarter | `ring_FL.stl` | 1 | 30% | 100g | 3h | L-shaped corner quarter; front-left |
+| Ring front-right quarter | `ring_FR.stl` | 1 | 30% | 100g | 3h | L-shaped corner quarter; front-right |
+| Ring rear-left quarter | `ring_RL.stl` | 1 | 30% | 95g | 2.5h | L-shaped corner quarter; rear-left |
+| Ring rear-right quarter | `ring_RR.stl` | 1 | 30% | 95g | 2.5h | L-shaped corner quarter; rear-right |
+| **Ring subtotal (×1)** | | | | **390g** | **11h** | |
+| **Ring subtotal (×3)** | | | | **1,170g** | **33h** | |
 
 ### GROWING TRAY (×3)
 
@@ -127,14 +151,14 @@ Each ring is split into 4 quarters for print bed compatibility. Print 3 complete
 | Section | Filament | Print Time |
 |---------|----------|------------|
 | Base unit | 620g | 18h |
-| Tray rings (×3) | 1,170g | 31.5h |
+| Tray rings (×3) | 1,170g | 33h |
 | Growing trays (×3) | 180g | 6h |
 | Sub-trays (×3) | 150g | 4.5h |
 | LED brackets (×3) | 60g | 1.5h |
 | Front doors (×3) | 90g | 3h |
 | Top cap | 95g | 3h |
 | Miscellaneous | 100g | 4h |
-| **Total** | **~2,465g** | **~71.5h** |
+| **Total** | **~2,465g** | **~73h** |
 
 **At $22/kg PETG: ~$54 filament cost**
 **At 65+ hours print time: plan for 7–10 days on a single printer running ~10h/day**
